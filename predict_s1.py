@@ -287,6 +287,7 @@ def load_img(img_input, device, up_scale,
     # save updated input image if possible
     if path_to_out is not None:
         if up_scale:
+            img_np = img_np.astype(np.uint8)
             img_np = cv2.resize(
                 img_np, (w * 2, h * 2), interpolation=cv2.INTER_AREA)
         if os.path.exists(path_to_out) == False:
